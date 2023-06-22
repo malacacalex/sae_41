@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Réunion</title>
+</head>
+<body>
+    <h1>Planification de réunion</h1>
+
+<form method="POST" action="/reunion.html">
+    <label for="date">Date :</label>
+    <input type="date" name="date" required><br>
+    <input type="radio" name="time_option" value="other_time">
+    <label for="other_time">Autre horaire :</label>
+    <input type="text" name="other_time"><br>
+
+    <h2>Utilisateurs disponibles :</h2>
+    <ul>
+        {% for user in users %}
+            <li>
+                <input type="checkbox" name="invited_users[]" value="{{ user }}"> {{ user }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <input type="submit" value="Planifier la réunion">
+</form>
+
+
+
+    <h2>Utilisateurs disponibles :</h2>
+    <ul>
+        {% for user in users %}
+            <li>{{ user }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
